@@ -46,17 +46,17 @@ calls the reverse function again with index + 1
 
 Example: n=4, k=3
 
-#### Bottom stack: i = start = 1, k = 3
+_Bottom stack: i = start = 1, k = 3_
 
-#### 2nd stack level: i = 2, k = 2
+_2nd stack level: i = 2, k = 2_
 
-#### 3rd stack level: i = 3, k = 1
+_3rd stack level: i = 3, k = 1_
 
 So far we got the current combination as 123
 
 The function is called one more time with start=4, k=0
 
-#### 4th stack level: start = 4, k=0
+_4th stack level: start = 4, k=0_
 
 The i does not matter here, because k = 0 which is the base case.
 (There cannot be a 0-combination)
@@ -67,7 +67,7 @@ We have to use Array.from here because we want to preserve current combination a
 
 So, the 4th level stack resolves.
 
-#### We are back at the 3rd stack level within the loop.
+_We are back at the 3rd stack level within the loop._
 
 Now, we pop out the last member of the current combination. In this case, 3.
 
@@ -79,27 +79,27 @@ We push the 4 to current combination: 124
 
 Reverse is called with i=4, k=0
 
-#### 4th stack level again:
+_4th stack level again:_
 
 Now, 124 is pushed to combs.
 
-#### 3rd stack level:
+_3rd stack level:_
 
 Current combination is pop()'d
 
 But the loop runs out at i= 4 = n, so we have to go back to
 
-#### 2nd stack level:
+_2nd stack level:_
 
 current combination is 12 when the reverse from 3rd stack level resolves.
 Then, 2 is popped off from current combination.
 
-#### We are back to stack level 1.
+_We are back to stack level 1._
 
 Loop i is incremented to 3.
 Reverse is called with i=3, k=2
 
-#### The recursion continues as follows:
+_The recursion continues as follows:_
 
 1
 13
@@ -123,17 +123,17 @@ This is another backtracking problem.
 
 Return an array of arrays of permutations of n numbers.
 
-### Overall Function
+_Overall Function_
 
 We need to keep track of both available numbers (say, of 1,2,3,4) and current permutation.
 
-#### Basecase
+_Basecase_
 
 When a permutation is complete (no available numbers), we are at the base case.
 
 There we copy the completed, current permutation to the array of completed permutations
 
-### Recursive step
+_Recursive step_
 
 For each level of recursion, we add one available number to current permutation and remove it from available numbers.
 After the recursive function resolves, then we remove the last/latest item in the current permutation. This is the back-tracking step. E.g. after we check 123, we remove 3 before we move back to the level of 12.
