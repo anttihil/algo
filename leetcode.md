@@ -44,7 +44,7 @@ var combine = function (n, k) {
 The idea is that the for loop adds an index to the current combination and then
 calls the reverse function again with index + 1
 
-Example: n=4, k=3
+**Example: n=4, k=3**
 
 _Bottom stack: i = start = 1, k = 3_
 
@@ -52,70 +52,70 @@ _2nd stack level: i = 2, k = 2_
 
 _3rd stack level: i = 3, k = 1_
 
-So far we got the current combination as 123
+    So far we got the current combination as 123
 
-The function is called one more time with start=4, k=0
+    The function is called one more time with start=4, k=0
 
 _4th stack level: start = 4, k=0_
 
-The i does not matter here, because k = 0 which is the base case.
-(There cannot be a 0-combination)
+    The i does not matter here, because k = 0 which is the base case.
+    (There cannot be a 0-combination)
 
-At the base case, we just push the current combination to combination array.
+    At the base case, we just push the current combination to combination array.
 
-We have to use Array.from here because we want to preserve current combination array for further editing but we need a copy that does not carry the reference.
+    We have to use Array.from here because we want to preserve current combination array for further editing but we need a copy that does not carry the reference.
 
-So, the 4th level stack resolves.
+    So, the 4th level stack resolves.
 
 _We are back at the 3rd stack level within the loop._
 
-Now, we pop out the last member of the current combination. In this case, 3.
+    Now, we pop out the last member of the current combination. In this case, 3.
 
-The current combination is 12 (because the length is one short of 3 we see that we are not done with 3rd stack level)
+    The current combination is 12 (because the length is one short of 3 we see that we are not done with 3rd stack level)
 
-We increment the loop index by one, i = 4. k is still 1.
+    We increment the loop index by one, i = 4. k is still 1.
 
-We push the 4 to current combination: 124
+    We push the 4 to current combination: 124
 
-Reverse is called with i=4, k=0
+    Reverse is called with i=4, k=0
 
 _4th stack level again:_
 
-Now, 124 is pushed to combs.
+    Now, 124 is pushed to combs.
 
 _3rd stack level:_
 
-Current combination is pop()'d
+    Current combination is pop()'d
 
-But the loop runs out at i= 4 = n, so we have to go back to
+    But the loop runs out at i= 4 = n, so we have to go back to
 
 _2nd stack level:_
 
-current combination is 12 when the reverse from 3rd stack level resolves.
-Then, 2 is popped off from current combination.
+    current combination is 12 when the reverse from 3rd stack level resolves.
+    Then, 2 is popped off from current combination.
 
 _We are back to stack level 1._
 
-Loop i is incremented to 3.
-Reverse is called with i=3, k=2
+    Loop i is incremented to 3.
+    Reverse is called with i=3, k=2
 
 _The recursion continues as follows:_
 
-1
-13
-134
-push(134)
-14
-nothing because reverse is called with i=5, k=1 so neither the base case (k=0) or the loop (i<=5) kicks in.
-2
-23
-234
-push(234)
-3
-34
-nothing b/c i=5, k=1
-4
-nothing b/c i=5, k=2
+    1
+    13
+    134
+    push(134)
+    14
+    nothing because reverse is called with i=5, k=1 so neither the base case (k=0) or the loop (i<=5) kicks in.
+    2
+    23
+    234
+    push(234)
+    3
+    34
+    nothing b/c i=5, k=1
+    4
+    nothing b/c i=5, k=2
 
 ### $46 Permutations
 
@@ -125,13 +125,13 @@ Return an array of arrays of permutations of n numbers.
 
 _Overall Function_
 
-We need to keep track of both available numbers (say, of 1,2,3,4) and current permutation.
+    We need to keep track of both available numbers (say, of 1,2,3,4) and current permutation.
 
 _Basecase_
 
-When a permutation is complete (no available numbers), we are at the base case.
+    When a permutation is complete (no available numbers), we are at the base case.
 
-There we copy the completed, current permutation to the array of completed permutations
+    There we copy the completed, current permutation to the array of completed permutations
 
 _Recursive step_
 
