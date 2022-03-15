@@ -298,7 +298,7 @@ The idea: We have n steps left. The constraint is that we can either take 1 or 2
 
 The problem with this approach is the time is O(2\*\*n). (Binary tree)
 
-We can alleviate this by memoaizing the results.
+We can alleviate this by memoizing the results.
 
 Create a Map to hold the memo items.
 **Note:** You must initialize the map with base cases. Otherwise, the recursive calls return undefined.
