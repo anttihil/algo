@@ -178,8 +178,9 @@ var permute = function (nums) {
 
 ### $784 Letter Case Permutation
 
-TimeComplexity: O(2**n) (very slow, because the function has to recurse twice. Very much the subset problem)
-SpaceComplexity: O(2**n) (binary tree)
+Time Complexity: O(2\*\*n) (very slow, because the function has to recurse twice. Very much the subset problem)
+
+Space Complexity: O(2\*\*n) (binary tree)
 
 Idea: recursive solution a la subsets
 
@@ -239,8 +240,9 @@ var letterCasePermutation = function (s) {
 
 ### $5 Longest Palindromic Substring
 
-timeComplexity = O(n**2) (because of the Cartesian product grid, and double embedded loop)
-spaceComplexity = O(n**2) (because of the grid)
+Time Complexity = O(n\*\*2) (because of the Cartesian product grid, and double embedded loop)
+
+Space Complexity = O(n\*\*2) (because of the grid)
 
 ```js
 /**
@@ -286,12 +288,13 @@ var longestPalindrome = function (s) {
 
 ## $70, Climbing stairs
 
-Time: O(n)
-Space: O(n)
+Time Complexity: O(n)
+
+Space Complexity: O(n)
 
 The idea: We have n steps left. The constraint is that we can either take 1 or 2 steps at a time. We can calculate the ways in which we take n steps by recursively calling the functions for n-1 and n-2 and return their _sum_.
 
-**The ways to take n steps === the ways to take n-1 + the ways to take n-2.**
+**The ways to take n steps === (the ways to take n-1) + (the ways to take n-2)**
 
 The problem with this approach is the time is O(2\*\*n). (Binary tree)
 
