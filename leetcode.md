@@ -604,3 +604,33 @@ var hammingWeight = function (n) {
   return number;
 };
 ```
+
+Bit manipulation solution:
+
+Time complexity: O(1)
+
+Space complexity: O(1)
+
+The idea is that n & n-1 will reduce the bits by one because in n-1 one bit will shift to the right.
+1010 -1 == 1001
+
+Then we get 1010 & 1001 = 1000. Count gets updated by 1.
+
+We iterate once more with 1000 & 0111, and the last bit disappears. Count gets updated by 1 again.
+
+Total bits = 2, which matches n = 1010.
+
+```js
+/**
+ * @param {number} n - a positive integer
+ * @return {number}
+ */
+var hammingWeight = function (n) {
+  let count = 0;
+  while (n) {
+    n &= n - 1;
+    count++;
+  }
+  return count;
+};
+```
