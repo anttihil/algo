@@ -334,6 +334,10 @@ var climbStairs = function (n) {
 
 ### $ 198 House Robber
 
+Time Complexity: O(n)
+
+Space Complexity: O(n)
+
 The setup: An array of numbers, each of which denote an amount of money that can be robbed from a house. The constraints are each house can be robber once and two adjacent houses cannot be robbed.
 
 The goal: Maximize the amount of money. Return the maximum amount as integer.
@@ -386,7 +390,11 @@ var rob = function (nums) {
 
 The task: Return nth Fibonacci number
 
-Dynamic programming top-down / memoization solution:
+Solution: Dynamic programming top-down / memoization
+
+Time Complexity: O(n)
+
+Space Complexity: O(n)
 
 Since each fibonacci number depends on two previous ones, this problem has the overlapping subproblems characteristics that signals it is a dynamic programming problem.
 
