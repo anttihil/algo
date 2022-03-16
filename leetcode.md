@@ -2,7 +2,9 @@
 
 Problems are added in the order that I have solved them. If you are interested in searching a LeetCode problem by its number, you can Ctrl+F with a $ tag. For example, $77 denotes Combinations problem.
 
-Each problem can exhibit multiple problem/solution patterns. These are denoted by an @ tag. For example, "@Dynamic programming" section shows a dynamic programming solution to the problem.
+Each problem can exhibit multiple problem/solution patterns. These are denoted by an @ tag. For example, "@dynamic programming" section shows a dynamic programming solution to the problem.
+
+One problem can have multiple solutions each with their respective @tags. This means it is easier to look through, say, only recursive solution patterns.
 
 ## $77 Combinations
 
@@ -10,7 +12,7 @@ Problem: Return an array of arrays of k-combinations of n items.
 
 Example: [1,2,3,4] -> [[1,2], [1,3], [1,4], [2,3], [2,4], [3,4]]
 
-### @Backtracking, @Recursion
+### @backtracking, @recursion
 
 Solution:
 
@@ -125,7 +127,7 @@ _The recursion continues as follows:_
 
 Return an array of arrays of permutations of n numbers.
 
-### @Backtracking, @Recursion
+### @backtracking, @recursion
 
 The idea: This is a backtracking problem.
 
@@ -184,7 +186,7 @@ var permute = function (nums) {
 
 ## $784 Letter Case Permutation
 
-### @Backtracking, @Recursion, @Subset
+### @backtracking, @recursion, @subset
 
 Time Complexity: O(2\*\*n) (very slow, because the function has to recurse twice. Very much the subset problem)
 
@@ -246,7 +248,7 @@ var letterCasePermutation = function (s) {
 
 ## $5 Longest Palindromic Substring
 
-### @Dynamic Programming, @Bottom-up
+### @dynamic programming, @bottom-up
 
 Time Complexity = O(n\*\*2) (because of the Cartesian product grid, and double embedded loop)
 
@@ -298,7 +300,7 @@ var longestPalindrome = function (s) {
 
 The task: We have n steps left. The constraint is that we can either take 1 or 2 steps at a time.
 
-### @Dynamic Programming, @Top-down
+### @dynamic programming, @top-down
 
 Time Complexity: O(n)
 
@@ -350,7 +352,7 @@ The setup: An array of numbers, each of which denote an amount of money that can
 
 The goal: Maximize the amount of money. Return the maximum amount as integer.
 
-### @Dynamic Programming, @Bottom-up
+### @dynamic programming, @bottom-up
 
 Time Complexity: O(n)
 
@@ -404,7 +406,7 @@ var rob = function (nums) {
 
 The task: Return nth Fibonacci number
 
-### @Dynamic programming, @Top-down, @Memoization
+### @dynamic programming, @top-down, @memoization
 
 Time Complexity: O(n)
 
@@ -444,7 +446,7 @@ var fib = function (n) {
 
 _Note:_ lower level functions (n-1 & n-2) are NOT called at level n if they are already in the memo. This makes the algorithm much faster.
 
-### @Dynamic Programming, @Top-down
+### @dynamic Programming, @top-down
 
 In the following _slower variation_, the function at n checks whether the case n is in the memo. If not, the function at n sets the memo[n] to be fibon(n-1) + fibon(n-2), and then return memo[n]. This is much slower because this function will call fibon(n-1) and fibon(n-2) even if those answers are already in the memo. Even though fibon(n-1) and fibon(n-2) return their solutions immediately from the memo, there is a much larger number of function calls in this alternative, +1 depth across the implicit tree of calculations.
 
@@ -498,7 +500,7 @@ Constraints:
 
 Follow up: Could you do this using only O(n) extra space, where n is the total number of rows in the triangle?
 
-### @Dynamic Programming, @Bottom-up
+### @dynamic Programming, @bottom-up
 
 Time Complexity: O(n^2)
 
@@ -546,7 +548,7 @@ Given an integer n, return true if it is a power of two. Otherwise, return false
 
 An integer n is a power of two, if there exists an integer x such that n == 2x.
 
-### @Loop
+### @loop
 
 Time Complexity: O(n)
 Space Complexity: O(1)
@@ -568,7 +570,7 @@ var isPowerOfTwo = function (n) {
 };
 ```
 
-### @Bit manipulation
+### @bit manipulation
 
 Two facts:
 
@@ -598,7 +600,7 @@ var isPowerOfTwo = function (n) {
 
 Write a function that takes an unsigned integer and returns the number of '1' bits it has (also known as the Hamming weight).
 
-### @Built-in method, @String, @Loop
+### @built-in method, @string, @loop
 
 Time complexity: O(n)
 
@@ -619,7 +621,7 @@ var hammingWeight = function (n) {
 };
 ```
 
-### @Bit manipulation
+### @bit manipulation
 
 Time complexity: O(1)
 
@@ -651,7 +653,7 @@ var hammingWeight = function (n) {
 
 ## $1 Two Sum
 
-### @Hash Map
+### @hash map
 
 Time Complexity: O(n)
 
