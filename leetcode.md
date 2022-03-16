@@ -1,12 +1,16 @@
 # Leetcode exercises
 
-## Recursion
+Problems are added in the order that I have solved them. If you are interested in searching a LeetCode problem by its number, you can Ctrl+F with a $ tag. For example, $77 denotes Combinations problem.
 
-### $77 Combinations
+Each problem can exhibit multiple problem/solution patterns. These are denoted by an @ tag. For example, "@Dynamic programming" section shows a dynamic programming solution to the problem.
+
+## $77 Combinations
 
 Problem: Return an array of arrays of k-combinations of n items.
 
 Example: [1,2,3,4] -> [[1,2], [1,3], [1,4], [2,3], [2,4], [3,4]]
+
+### @Backtracking, @Recursion
 
 Solution:
 
@@ -117,11 +121,13 @@ _The recursion continues as follows:_
     4
     nothing b/c i=5, k=2
 
-### $46 Permutations
-
-This is another backtracking problem.
+## $46 Permutations
 
 Return an array of arrays of permutations of n numbers.
+
+### @Backtracking, @Recursion
+
+The idea: This is a backtracking problem.
 
 _Overall Function_
 
@@ -176,7 +182,9 @@ var permute = function (nums) {
 };
 ```
 
-### $784 Letter Case Permutation
+## $784 Letter Case Permutation
+
+### @Backtracking, @Recursion, @Subset
 
 Time Complexity: O(2\*\*n) (very slow, because the function has to recurse twice. Very much the subset problem)
 
@@ -236,9 +244,9 @@ var letterCasePermutation = function (s) {
 };
 ```
 
-## Dynamic Programming
+## $5 Longest Palindromic Substring
 
-### $5 Longest Palindromic Substring
+### @Dynamic Programming, @Bottom-up
 
 Time Complexity = O(n\*\*2) (because of the Cartesian product grid, and double embedded loop)
 
@@ -286,13 +294,17 @@ var longestPalindrome = function (s) {
 };
 ```
 
-### $70 Climbing stairs
+## $70 Climbing stairs
+
+The task: We have n steps left. The constraint is that we can either take 1 or 2 steps at a time.
+
+### @Dynamic Programming, @Top-down
 
 Time Complexity: O(n)
 
 Space Complexity: O(n)
 
-The idea: We have n steps left. The constraint is that we can either take 1 or 2 steps at a time. We can calculate the ways in which we take n steps by recursively calling the functions for n-1 and n-2 and return their _sum_.
+The idea: We can calculate the ways in which we take n steps by recursively calling the functions for n-1 and n-2 and return their _sum_.
 
 **The ways to take n steps === (the ways to take n-1) + (the ways to take n-2)**
 
@@ -332,15 +344,17 @@ var climbStairs = function (n) {
 };
 ```
 
-### $ 198 House Robber
-
-Time Complexity: O(n)
-
-Space Complexity: O(n)
+## $ 198 House Robber
 
 The setup: An array of numbers, each of which denote an amount of money that can be robbed from a house. The constraints are each house can be robber once and two adjacent houses cannot be robbed.
 
 The goal: Maximize the amount of money. Return the maximum amount as integer.
+
+### @Dynamic Programming, @Bottom-up
+
+Time Complexity: O(n)
+
+Space Complexity: O(n)
 
 The idea: This is a dynamic programming problem because given a number of houses to choose from the decision to rob the latest depends on the previous decisions. This is the "overlapping subproblems" characteristics.
 
@@ -386,11 +400,11 @@ var rob = function (nums) {
 };
 ```
 
-### $509 Fibonacci Number
+## $509 Fibonacci Number
 
 The task: Return nth Fibonacci number
 
-Solution: Dynamic programming top-down / memoization
+### @Dynamic programming, @Top-down, @Memoization
 
 Time Complexity: O(n)
 
@@ -429,6 +443,8 @@ var fib = function (n) {
 ```
 
 _Note:_ lower level functions (n-1 & n-2) are NOT called at level n if they are already in the memo. This makes the algorithm much faster.
+
+### @Dynamic Programming, @Top-down
 
 In the following _slower variation_, the function at n checks whether the case n is in the memo. If not, the function at n sets the memo[n] to be fibon(n-1) + fibon(n-2), and then return memo[n]. This is much slower because this function will call fibon(n-1) and fibon(n-2) even if those answers are already in the memo. Even though fibon(n-1) and fibon(n-2) return their solutions immediately from the memo, there is a much larger number of function calls in this alternative, +1 depth across the implicit tree of calculations.
 
@@ -482,7 +498,7 @@ Constraints:
 
 Follow up: Could you do this using only O(n) extra space, where n is the total number of rows in the triangle?
 
-My solution:
+### @Dynamic Programming, @Bottom-up
 
 Time Complexity: O(n^2)
 
@@ -524,15 +540,13 @@ var minimumTotal = function (triangle) {
 };
 ```
 
-## Bit Manipulation
-
-### $231 Power of Two
+## $231 Power of Two
 
 Given an integer n, return true if it is a power of two. Otherwise, return false.
 
 An integer n is a power of two, if there exists an integer x such that n == 2x.
 
-Loop solution:
+### @Loop
 
 Time Complexity: O(n)
 Space Complexity: O(1)
@@ -554,7 +568,7 @@ var isPowerOfTwo = function (n) {
 };
 ```
 
-Bit manipulation stupid solution:
+### @Bit manipulation
 
 Two facts:
 
@@ -580,11 +594,11 @@ var isPowerOfTwo = function (n) {
 };
 ```
 
-### $191 Number of 1 bits
+## $191 Number of 1 bits
 
 Write a function that takes an unsigned integer and returns the number of '1' bits it has (also known as the Hamming weight).
 
-Cheesy string conversion solution:
+### @Built-in method, @String, @Loop
 
 Time complexity: O(n)
 
@@ -605,7 +619,7 @@ var hammingWeight = function (n) {
 };
 ```
 
-Bit manipulation solution:
+### @Bit manipulation
 
 Time complexity: O(1)
 
@@ -632,5 +646,36 @@ var hammingWeight = function (n) {
     count++;
   }
   return count;
+};
+```
+
+## $1 Two Sum
+
+### @Hash Map
+
+Time Complexity: O(n)
+
+Space Complexity: O(n)
+
+This would be easy as well with O(n^2) time. One could just have two pointers searching through all pairs. Outer pointer moves from start to left, inner pointer moves always from outer pointer to the end.
+
+Introducing a hash map we can save the difference between target and current number as a memo key, and then save the index as the value. For each new number, we first check whether the current number exists as a key in the memo (because target - prev = current).
+
+If yes, return current index and previous index.
+
+If not, save (target - current number) as a key in the memo.
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function (nums, target) {
+  let map = new Map();
+  for (let i = 0; i < nums.length; i++) {
+    if (map.has(target - nums[i])) return [i, map.get(target - nums[i])];
+    map.set(nums[i], i);
+  }
 };
 ```
