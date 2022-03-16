@@ -484,7 +484,7 @@ Follow up: Could you do this using only O(n) extra space, where n is the total n
 
 My solution:
 
-Time Complexity: `asciimath O(n^2)`
+Time Complexity: O(n^2)
 
 Space Complexity: O(n)
 
