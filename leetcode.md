@@ -579,3 +579,28 @@ var isPowerOfTwo = function (n) {
   return n > 0 && !(n & (n - 1));
 };
 ```
+
+### $191 Number of 1 bits
+
+Write a function that takes an unsigned integer and returns the number of '1' bits it has (also known as the Hamming weight).
+
+Cheesy string conversion solution:
+
+Time complexity: O(n)
+
+Space complexity: O(1)
+
+```js
+/**
+ * @param {number} n - a positive integer
+ * @return {number}
+ */
+var hammingWeight = function (n) {
+  let number = 0;
+  let binary = n.toString(2);
+  for (let char of binary) {
+    if (char == 1) number++;
+  }
+  return number;
+};
+```
