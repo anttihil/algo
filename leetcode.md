@@ -814,7 +814,7 @@ var isAnagram = function (s, t) {
 };
 ```
 
-### #hash, #loop, #string
+### #hash map, #loop, #string
 
 An alternative, simpler solution that uses a single frequency hash map. With string s, we add frequencies to the map. With the second string t, we substract frequencies from the map.
 
