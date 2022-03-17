@@ -6,13 +6,13 @@ Each problem can exhibit multiple problem/solution patterns. These are denoted b
 
 One problem can have multiple solutions each with their respective @tags. This means it is easier to look through, say, only recursive solution patterns.
 
-## $77 Combinations
+## @77 Combinations
 
 Problem: Return an array of arrays of k-combinations of n items.
 
 Example: [1,2,3,4] -> [[1,2], [1,3], [1,4], [2,3], [2,4], [3,4]]
 
-### @backtracking, @recursion
+### #backtracking, #recursion
 
 Solution:
 
@@ -123,11 +123,11 @@ _The recursion continues as follows:_
     4
     nothing b/c i=5, k=2
 
-## $46 Permutations
+## @46 Permutations
 
 Return an array of arrays of permutations of n numbers.
 
-### @backtracking, @recursion
+### #backtracking, #recursion
 
 The idea: This is a backtracking problem.
 
@@ -184,9 +184,9 @@ var permute = function (nums) {
 };
 ```
 
-## $784 Letter Case Permutation
+## @784 Letter Case Permutation
 
-### @backtracking, @recursion, @subset
+### #backtracking, #recursion, #subset
 
 Time Complexity: O(2\*\*n) (very slow, because the function has to recurse twice. Very much the subset problem)
 
@@ -246,9 +246,9 @@ var letterCasePermutation = function (s) {
 };
 ```
 
-## $5 Longest Palindromic Substring
+## @5 Longest Palindromic Substring
 
-### @dynamic programming, @bottom-up
+### #dynamic programming, #bottom-up
 
 Time Complexity = O(n\*\*2) (because of the Cartesian product grid, and double embedded loop)
 
@@ -296,11 +296,11 @@ var longestPalindrome = function (s) {
 };
 ```
 
-## $70 Climbing stairs
+## @70 Climbing stairs
 
 The task: We have n steps left. The constraint is that we can either take 1 or 2 steps at a time.
 
-### @dynamic programming, @top-down
+### #dynamic programming, #top-down
 
 Time Complexity: O(n)
 
@@ -346,13 +346,13 @@ var climbStairs = function (n) {
 };
 ```
 
-## $ 198 House Robber
+## @198 House Robber
 
 The setup: An array of numbers, each of which denote an amount of money that can be robbed from a house. The constraints are each house can be robber once and two adjacent houses cannot be robbed.
 
 The goal: Maximize the amount of money. Return the maximum amount as integer.
 
-### @dynamic programming, @bottom-up
+### #dynamic programming, #bottom-up
 
 Time Complexity: O(n)
 
@@ -402,11 +402,11 @@ var rob = function (nums) {
 };
 ```
 
-## $509 Fibonacci Number
+## @509 Fibonacci Number
 
 The task: Return nth Fibonacci number
 
-### @dynamic programming, @top-down, @memoization
+### #dynamic programming, #top-down, #memoization
 
 Time Complexity: O(n)
 
@@ -446,7 +446,7 @@ var fib = function (n) {
 
 _Note:_ lower level functions (n-1 & n-2) are NOT called at level n if they are already in the memo. This makes the algorithm much faster.
 
-### @dynamic Programming, @top-down
+### #dynamic Programming, #top-down
 
 In the following _slower variation_, the function at n checks whether the case n is in the memo. If not, the function at n sets the memo[n] to be fibon(n-1) + fibon(n-2), and then return memo[n]. This is much slower because this function will call fibon(n-1) and fibon(n-2) even if those answers are already in the memo. Even though fibon(n-1) and fibon(n-2) return their solutions immediately from the memo, there is a much larger number of function calls in this alternative, +1 depth across the implicit tree of calculations.
 
@@ -469,7 +469,7 @@ var fib = function (n) {
 };
 ```
 
-### $120 Triangle
+### @120 Triangle
 
 Given a triangle array, return the minimum path sum from top to bottom.
 
@@ -500,7 +500,7 @@ Constraints:
 
 Follow up: Could you do this using only O(n) extra space, where n is the total number of rows in the triangle?
 
-### @dynamic Programming, @bottom-up
+### #dynamic Programming, #bottom-up
 
 Time Complexity: O(n^2)
 
@@ -542,13 +542,13 @@ var minimumTotal = function (triangle) {
 };
 ```
 
-## $231 Power of Two
+## @231 Power of Two
 
 Given an integer n, return true if it is a power of two. Otherwise, return false.
 
 An integer n is a power of two, if there exists an integer x such that n == 2x.
 
-### @loop
+### #loop
 
 Time Complexity: O(n)
 Space Complexity: O(1)
@@ -570,7 +570,7 @@ var isPowerOfTwo = function (n) {
 };
 ```
 
-### @bit manipulation
+### #bit manipulation
 
 Two facts:
 
@@ -596,11 +596,11 @@ var isPowerOfTwo = function (n) {
 };
 ```
 
-## $191 Number of 1 bits
+## @191 Number of 1 bits
 
 Write a function that takes an unsigned integer and returns the number of '1' bits it has (also known as the Hamming weight).
 
-### @built-in method, @string, @loop
+### #built-in method, #string, #loop
 
 Time complexity: O(n)
 
@@ -621,7 +621,7 @@ var hammingWeight = function (n) {
 };
 ```
 
-### @bit manipulation
+### #bit manipulation
 
 Time complexity: O(1)
 
@@ -651,9 +651,9 @@ var hammingWeight = function (n) {
 };
 ```
 
-## $1 Two Sum
+## @1 Two Sum
 
-### @hash map
+### #hash map
 
 Time Complexity: O(n)
 
@@ -679,5 +679,167 @@ var twoSum = function (nums, target) {
     if (map.has(target - nums[i])) return [i, map.get(target - nums[i])];
     map.set(nums[i], i);
   }
+};
+```
+
+## @217 Contains Duplicates
+
+The problem:
+
+Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
+
+### #hash map
+
+Time Complexity: O(n)
+
+Space Complexity: O(n)
+
+The idea:
+
+Save visited numbers to a hash map. If any new number occurs in the map, we know that it is a duplicate.
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {boolean}
+ */
+var containsDuplicate = function (nums) {
+  let map = new Map();
+
+  for (let num of nums) {
+    if (map.has(num)) return true;
+    map.set(num, true);
+  }
+  return false;
+};
+```
+
+## @121 Best Time to Buy and Sell Stock
+
+You are given an array prices where prices[i] is the price of a given stock on the ith day.
+
+You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
+
+Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
+
+Example 1:
+
+Input: prices = [7,1,5,3,6,4]
+Output: 5
+Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
+Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.
+
+Example 2:
+
+Input: prices = [7,6,4,3,1]
+Output: 0
+Explanation: In this case, no transactions are done and the max profit = 0.
+
+Constraints:
+
+1 <= prices.length <= 105
+0 <= prices[i] <= 104
+
+### #loop
+
+The idea:
+
+Start from the smallest scenario in which buying and selling is possible.
+
+Update these variables while looping.
+
+```js
+/**
+ * @param {number[]} prices
+ * @return {number}
+ */
+var maxProfit = function (prices) {
+  if (prices.length === 1) return 0;
+  let smallestSoFar = prices[0];
+  let profit = 0;
+  let i = 1;
+  while (i < prices.length) {
+    profit = Math.max(prices[i] - smallestSoFar, profit);
+    smallestSoFar = Math.min(smallestSoFar, prices[i]);
+    i++;
+  }
+  return profit >= 0 ? profit : 0;
+};
+```
+
+## @242 Valid Anagram
+
+The task: Given two strings s and t, return true if anagram, false otherwise.
+
+### #hash map, #loop
+
+This was my first solution.
+
+First, check the lengths. If not same, return false.
+
+Build one hash map of the frequencies of chars in string s.
+
+Then start building a hash map of frequencies in t.
+If a char in t that does not exist in s, return false
+Update hash map for t.
+If a frequency in t is greater than in s, return false.
+
+This works because any difference in char means that some frequency in t must be higher.
+Even if we have not checked all chars in t, we know that once a frequency in s (completed map) is exceeded t must be a non-anagram.
+
+While we are in the midst of checking, we cannot conclude falsity from a _lower_ frequency in t simply because the checking is not complete yet.
+
+```js
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
+var isAnagram = function (s, t) {
+  if (s.length !== t.length) return false;
+  let mapS = new Map();
+  let mapT = new Map();
+  for (let char of s) {
+    let val = mapS.get(char);
+    val ? mapS.set(char, val + 1) : mapS.set(char, 1);
+  }
+  for (let char of t) {
+    if (mapS.has(char)) {
+      let val = mapT.get(char);
+      val ? mapT.set(char, val + 1) : mapT.set(char, 1);
+      if (mapS.get(char) < mapT.get(char)) return false;
+    } else return false;
+  }
+  return true;
+};
+```
+
+### #hash, #loop
+
+An alternative, simpler solution that uses a single frequency hash map. With string s, we add frequencies to the map. With the second string t, we substract frequencies from the map.
+
+If we find a char in t which is not in the map (val === undefined) or whose frequency is already 0, then we will return false.
+
+Otherwise, return true. We can do this because if the lengths of strings are the same, string s is going to have a higher frequency at one char or a char that does not exist in t. Thus, val above in the frequency check is going to hit 0 or undefined, respectively.
+
+```js
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
+var isAnagram = function (s, t) {
+  if (s.length !== t.length) return false;
+  let freq = new Map();
+  for (let char of s) {
+    let val = freq.get(char);
+    val ? freq.set(char, val + 1) : freq.set(char, 1);
+  }
+  for (let char of t) {
+    let val = freq.get(char);
+    if (val) freq.set(char, val - 1);
+    else return false;
+  }
+  return true;
 };
 ```
