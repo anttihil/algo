@@ -186,9 +186,9 @@ var permute = function (nums) {
 
 ## @784 Letter Case Permutation
 
-### #backtracking, #recursion, #subset, #string
+### #backtracking, #recursion, #subsets, #string
 
-Time Complexity: O(2\*\*n) (very slow, because the function has to recurse twice. Very much the subset problem)
+Time Complexity: O(2\*\*n) (very slow, because the function has to recurse twice. Very much like a classic subsets problem)
 
 Space Complexity: O(2\*\*n) (binary tree)
 
