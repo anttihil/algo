@@ -1,7 +1,8 @@
 ---
+tags: [binary search, binary search tree, loop, recursion]
 title: 0235 Lowest Common Ancestor of a BST
 created: '2022-04-09T05:12:49.420Z'
-modified: '2022-04-09T05:39:52.221Z'
+modified: '2022-04-11T05:58:20.760Z'
 ---
 
 # 0235 Lowest Common Ancestor of a BST

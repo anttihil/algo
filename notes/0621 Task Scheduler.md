@@ -1,7 +1,8 @@
 ---
+tags: [greedy, hash map, loop, priority queue, recursion]
 title: 0621 Task Scheduler
 created: '2022-04-11T05:22:24.426Z'
-modified: '2022-04-11T05:55:56.508Z'
+modified: '2022-04-11T05:57:20.713Z'
 ---
 
 # 0621 Task Scheduler 

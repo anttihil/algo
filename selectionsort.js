@@ -4,16 +4,15 @@ function selectionSort(arr) {
   // inner loop pointer moves right from i+1
   // find minimum
   // swap i and minimum
-  let i = 0;
-  while (i < arr.length - 1) {
-    for (let j = i + 1; j < arr.length; i++) {}
+  let min = 0;
+  for (let i = 0; i < arr.length; i++) {
+    min = i;
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[j] < arr[min]) min = j;
+    }
+    [arr[i], arr[min]] = [arr[min], arr[i]];
   }
+  return arr;
 }
 
-function findMinimum(arr, l, r) {
-  let j = l + 1;
-  let min = arr[l];
-  while (j < arr.length) {
-    arr[j];
-  }
-}
+console.log(selectionSort([]));

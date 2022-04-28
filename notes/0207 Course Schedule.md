@@ -1,7 +1,8 @@
 ---
+tags: [array, set, topological sort]
 title: 0207 Course Schedule
 created: '2022-04-06T01:20:10.937Z'
-modified: '2022-04-06T01:58:52.004Z'
+modified: '2022-04-11T05:57:52.909Z'
 ---
 
 # 0207 Course Schedule 

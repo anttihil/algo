@@ -1,7 +1,8 @@
 ---
+tags: [data structure]
 title: Heap
 created: '2022-04-07T20:23:21.749Z'
-modified: '2022-04-07T21:57:57.218Z'
+modified: '2022-04-11T05:59:24.002Z'
 ---
 
 # Heap
@@ -87,6 +88,47 @@ Step: &n=k+1&
 The first child of &k+1& will be immediately after the 2nd child of the previous element. 
 
 Thus, first child is at &2k+3& which is the same as &2(k+1)+1&. QED.
+
+```js
+class MaxBinaryHeap {
+  constructor() {
+    this.values = [];
+  }
+  insert(value) {
+    let heap = this.values;
+    heap.push(value);
+    let added = heap.length - 1;
+    function findParent(x) {
+      return Math.floor((x - 1) / 2);
+    }
+    const bubbleUp = (child, parent) => {
+      if (heap[child] > heap[parent]) {
+        [heap[child], heap[parent]] = [heap[parent], heap[child]];
+        bubbleUp(parent, findParent(parent));
+      }
+    };
+    bubbleUp(added, findParent(added));
+  }
+  extractMax() {
+    let heap = this.values;
+    let last = heap.length - 1;
+    let max = heap[0];
+    [heap[0], heap[last]] = [heap[last], heap[0]];
+    heap.pop();
+    const bubbleDown = (p, l, r) => {
+      if (heap[l] > heap[p]) {
+        [heap[p], heap[l]] = [heap[l], heap[p]];
+        bubbleDown(l, 2 * l + 1, 2 * l + 2);
+      } else if (heap[r] > heap[p]) {
+        [heap[p], heap[r]] = [heap[r], heap[p]];
+        bubbleDown(r, 2 * r + 1, 2 * r + 2);
+      }
+    };
+    bubbleDown(0, 1, 2);
+    return max;
+  }
+}
+```
 
 
 
