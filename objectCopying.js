@@ -34,3 +34,9 @@ let string = "a";
 let number = "a9";
 console.log(string.match(/\d/));
 console.log(number.match(/\d/));
+
+var keke;
+function print(str = "no arg") {
+  console.log(str);
+}
+print(keke);
