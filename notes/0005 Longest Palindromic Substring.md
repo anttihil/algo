@@ -1,8 +1,8 @@
 ---
 tags: [bottom-up, dynamic programming, string]
 title: 0005 Longest Palindromic Substring
-created: '2022-03-22T06:05:11.459Z'
-modified: '2022-03-22T06:17:53.295Z'
+created: "2022-03-22T06:05:11.459Z"
+modified: "2022-03-22T06:17:53.295Z"
 ---
 
 # 0005 Longest Palindromic Substring
@@ -34,6 +34,8 @@ var longestPalindrome = function (s) {
   //console.log(grid);
 
   for (let end = 0; end < s.length; end++) {
+    // we can also loop "start" from 0 ascending b/c it only matters that end is fixed first
+    // in the dp grid the previous palindrome is (start+1, end-1) which means that the diagonally lower right cell is needed. Thus, we need to loop through rows of a given column (downwards or upwards)
     for (let start = end - 1; start >= 0; start--) {
       //console.log("[start,end]:" [start, end]);
       if (s[end] === s[start]) {
